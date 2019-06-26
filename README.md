@@ -18,4 +18,9 @@ To install:
 brew install hyperjeff/tools/shuffle
 ```
 
-`shuffle` was written in Swift using AVFoundation, so is Mac-only.
+Subsequent updates via:
+```
+brew upgrade shuffle
+```
+
+`shuffle` was written in Swift using AVFoundation, and hence is Mac-only.
