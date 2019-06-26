@@ -17,3 +17,5 @@ To install:
 ```
 brew install hyperjeff/tools/shuffle
 ```
+
+`shuffle` was written in Swift using AVFoundation, so is Mac-only.
