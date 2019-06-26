@@ -24,4 +24,5 @@ Subsequent updates via:
 brew upgrade shuffle
 ```
 
-`shuffle` was written in Swift using AVFoundation, and hence is Mac-only.
+## About
+`shuffle` was written purely in Swift using AVFoundation, and hence is Mac-only.
