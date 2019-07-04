@@ -13,6 +13,7 @@ but you can also play in non-shuffle mode.
 - Instantly starts even for huge collections of music (in shuffle mode)
 - Indefinite rewind in shuffle mode
 - Jump forward/back by album (when in non-shuffle mode)
+- Uses roughly 1/10th the RAM of iTunes, and hardly any CPU resources
 
 ## Install
 To install:
