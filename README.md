@@ -28,3 +28,50 @@ brew upgrade shuffle
 
 ## About
 `shuffle` was written purely in Swift using AVFoundation, and hence is Mac-only.
+
+`shuffle -h` for help, which is this currently:
+
+```
+shuffle 1.3 -- Plays a shuffled list of music files
+               Copyright 2019 HyperJeff, Inc
+
+Usage: shuffle [options] [-genre Genre] [directories]
+
+   -h | print this help and exit
+
+options for music playback:
+
+   -a | album shuffle
+   -n | non-shuffle mode
+   -r | recursively search directories
+   -y | year order, then artist
+
+options for info display:
+
+   -f | filepath shown
+   -i | invert colors
+   -m | metadata not shown
+   -s | short filepath display
+   -t | track and year info not shown
+   -0 | no printed output
+   -1 | monochrome output
+
+If no directory is specified, current directory will be used.
+Albums and genre only available on Spotlight-indexed volumes.
+Albums and genre always use recursive folder descent.
+
+  space | pause/continue song
+   [ ]  | skip back/ahead 15 seconds
+   { }  | skip to previous/next album
+   ← →  | previous/next song
+   ↑ ↓  | volume up/down
+   < >  | adjust rate slower/faster
+    =   | set rate back to default
+    ∞   | loop current track (option-5)
+    f   | toggle showing filepath
+    q   | quit
+        |
+   tab  | show current music lineup
+  ⇧-tab | show current album lineup (when available)
+  ctl-r | reveal current tune in enclosing folder
+```
