@@ -119,4 +119,4 @@ or grouped together:
 shuffle -1irf
 ```
 
-*Regex*es are applied (currently at least) only to filenames, and technically are formed by prepending ```.*\b` and postpending `\b.*` in order to make it easier to just put in a word that one might want to make a playlist theme out of.
+*Regex*es are applied (currently at least) only to filenames, and technically are formed by prepending `.*\b` and postpending `\b.*` in order to make it easier to just put in a word that one might want to make a playlist theme out of.
