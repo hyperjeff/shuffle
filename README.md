@@ -13,6 +13,7 @@ but you can also play in non-shuffle mode.
 - Instantly starts even for huge collections of music (in shuffle mode)
 - Indefinite rewind in shuffle mode
 - Jump forward/back by album (when in non-shuffle mode)
+- Regex filters applied to filenames (optional)
 - Uses roughly 1/10th the RAM of iTunes, and hardly any CPU resources
 
 ## Install
@@ -32,10 +33,10 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.3 -- Plays a shuffled list of music files
+shuffle 1.4 -- Plays a shuffled list of music files
                Copyright 2019 HyperJeff, Inc
 
-Usage: shuffle [options] [-genre Genre] [directories]
+Usage: shuffle [options] [-genre Genre] [-regex "..."] [directories &/on files]
 
    -h | print this help and exit
 
@@ -59,6 +60,7 @@ options for info display:
 If no directory is specified, current directory will be used.
 Albums and genre only available on Spotlight-indexed volumes.
 Albums and genre always use recursive folder descent.
+The Regex filter is performed against filenames only.
 
   space | pause/continue song
    [ ]  | skip back/ahead 15 seconds
