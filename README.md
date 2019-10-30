@@ -77,3 +77,30 @@ The Regex filter is performed against filenames only.
   ⇧-tab | show current album lineup (when available)
   ctl-r | reveal current tune in enclosing folder
 ```
+
+## Examples
+Shuffle play all music in one directory:
+```] shuffle -r ~/Music```
+
+Play tracks in order:
+```] shuffle -n ~/Music/AudioBooks/Other-Minds/```
+
+Shuffle play all music in many directories:
+```] shuffle -r ~/Music /Volumes/Exocat/Music /Volumes/SomeNetworkVolume/Music/```
+
+Shuffle whole albums in a given genre:
+```] shuffle -a -genre Ambient ~/Music```
+
+Play all songs in chronological order:
+```] shuffle -ry ~/Music/Compilations```
+
+Shuffle all songs with the word Feelin', Feeling, Feelings:
+```] shuffle /Volumes/∆/Music/ -r -regex "Feelin.*"```
+
+## Notes
+Flags can be input separately:
+```] shuffle -f -i -r -1 .```
+or grouped together:
+```] shuffle -1irf```
+
+*Regex*es are applied (currently at least) only to filenames, and technically are formed by prepending `.*\b` and postpending `\b.*` in order to make it easier to just put in a word that one might want to make a playlist theme out of.
