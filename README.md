@@ -22,6 +22,8 @@ To install:
 brew install hyperjeff/tools/shuffle
 ```
 
+You may also need to install the [Swift 5 Runtime Support for Command Line Tools](https://support.apple.com/kb/DL1998?locale=en_US) from Apple.
+
 Subsequent updates via:
 ```
 brew upgrade shuffle
