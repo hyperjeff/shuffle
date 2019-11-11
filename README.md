@@ -33,34 +33,37 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.4 -- Plays a shuffled list of music files
+shuffle 1.5 -- Plays a shuffled list of music files
                Copyright 2019 HyperJeff, Inc
 
-Usage: shuffle [options] [-genre Genre] [-regex "..."] [directories &/on files]
+Usage: shuffle [options] [-genre Genre] [-regex "..."] [-start hh:mm:ss] [-rate x] [directories/files]
 
-   -h | print this help and exit
+ -genre | only include items within a specific genre (implies -r)
+ -rate  | set the initial playback speed multiplier
+ -regex | filter filenames using a regular expression
+ -start | begin at specified offset time (first track only)
 
 options for music playback:
 
-   -a | album shuffle
-   -n | non-shuffle mode
-   -r | recursively search directories
-   -y | year order, then artist
+     -a | album shuffle (implies -r)
+     -n | non-shuffle mode
+     -r | recursively search directories
+     -y | year order, then artist
 
 options for info display:
 
-   -f | filepath shown
-   -i | invert colors
-   -m | metadata not shown
-   -s | short filepath display
-   -t | track and year info not shown
-   -0 | no printed output
-   -1 | monochrome output
+     -f | filepath shown
+     -h | print this help and exit
+     -i | invert colors
+     -m | metadata not shown
+     -q | don't clear info on quit
+     -s | short filepath display
+     -t | track and year info not shown
+     -0 | no printed output
+     -1 | monochrome output
 
 If no directory is specified, current directory will be used.
 Albums and genre only available on Spotlight-indexed volumes.
-Albums and genre always use recursive folder descent.
-The Regex filter is performed against filenames only.
 
   space | pause/continue song
    [ ]  | skip back/ahead 15 seconds
@@ -71,6 +74,7 @@ The Regex filter is performed against filenames only.
     =   | set rate back to default
     ∞   | loop current track (option-5)
     f   | toggle showing filepath
+    Q   | quit without clearing info
     q   | quit
         |
    tab  | show current music lineup
