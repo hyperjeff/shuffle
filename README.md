@@ -33,53 +33,56 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.5 -- Plays a shuffled list of music files
+shuffle 1.6 -- Plays a shuffled list of music files
                Copyright 2019 HyperJeff, Inc
 
-Usage: shuffle [options] [-genre Genre] [-regex "..."] [-start hh:mm:ss] [-rate x] [directories/files]
+Usage: shuffle [options] [--genre Genre] [--regex "..."] [--mdfind "..."] [--start hh:mm:ss] [--rate x] [directories/files]
 
- -genre | only include items within a specific genre (implies -r)
- -rate  | set the initial playback speed multiplier
- -regex | filter filenames using a regular expression
- -start | begin at specified offset time (first track only)
+ --genre  | only include items within a specific genre(s) (implies -r)
+ --mdfind | add any standard mdfind filter (no need to type "kMDItem" however)
+ --rate   | set the initial playback speed multiplier
+ --regex  | filter filenames using a regular expression
+ --start  | begin at specified offset time (first track only)
 
 options for music playback:
 
-     -a | album shuffle (implies -r)
-     -n | non-shuffle mode
-     -r | recursively search directories
-     -y | year order, then artist
+       -a | album shuffle (implies -r)
+       -n | non-shuffle mode
+       -r | recursively search directories
+       -y | year order, then artist
 
 options for info display:
 
-     -f | filepath shown
-     -h | print this help and exit
-     -i | invert colors
-     -m | metadata not shown
-     -q | don't clear info on quit
-     -s | short filepath display
-     -t | track and year info not shown
-     -0 | no printed output
-     -1 | monochrome output
+       -f | filepath shown
+       -h | print this help and exit
+       -i | invert colors
+       -m | metadata not shown
+       -q | don't clear info on quit
+       -s | short filepath display
+       -t | track and year info not shown
+       -0 | no printed output
+       -1 | monochrome output
 
 If no directory is specified, current directory will be used.
 Albums and genre only available on Spotlight-indexed volumes.
+Several genres can be specified if in quotes and comma-separated.
+Handy mdfind aliases: Year, Genre, Track, Rate, Length.
 
-  space | pause/continue song
-   [ ]  | skip back/ahead 15 seconds
-   { }  | skip to previous/next album
-   ← →  | previous/next song
-   ↑ ↓  | volume up/down
-   < >  | adjust rate slower/faster
-    =   | set rate back to default
-    ∞   | loop current track (option-5)
-    f   | toggle showing filepath
-    Q   | quit without clearing info
-    q   | quit
-        |
-   tab  | show current music lineup
-  ⇧-tab | show current album lineup (when available)
-  ctl-r | reveal current tune in enclosing folder
+    space | pause/continue song
+     [ ]  | skip back/ahead 15 seconds
+     { }  | skip to previous/next album
+     ← →  | previous/next song
+     ↑ ↓  | volume up/down
+     < >  | adjust rate slower/faster
+      =   | set rate back to default
+      ∞   | loop current track (option-5)
+      f   | toggle showing filepath
+      Q   | quit without clearing info
+      q   | quit
+          |
+     tab  | show current music queue
+shift-tab | show current album queue (when available)
+    ctl-r | reveal current tune in enclosing folder
 ```
 
 ## Examples
@@ -100,7 +103,12 @@ shuffle -r ~/Music /Volumes/Exocat/Music /Volumes/SomeNetworkVolume/Music/
 
 Shuffle whole albums in a given genre:
 ```
-shuffle -a -genre Ambient ~/Music
+shuffle -a --genre Ambient ~/Music
+```
+
+Shuffle among multiple genres:
+```
+shuffle --genre "Glam Rock, Experimental Pop, Speed Bluegrass"
 ```
 
 Play all songs in chronological order:
@@ -110,8 +118,21 @@ shuffle -ry ~/Music/Compilations
 
 Shuffle all songs with the word Feelin', Feeling, Feelings:
 ```
-shuffle /Volumes/∆/Music/ -r -regex "Feelin.*"
+shuffle ~/Music/ -r --regex "Feelin.*"
 ```
+or use regex to pick out groups of terms into a playlist:
+```
+shuffle ~/Music/ -r --regex "Sun|Moon|Star|Planet"
+```
+
+Advanced `mdfind`-base searches can save you from some convoluted piping.
+Use any clause you might want to send to mdfind to filter for songs.
+And best of all, no need to type "MDItem"!
+High quality music from 1970 to 1976:
+```
+shuffle ~/Music --mdfind 'AudioSampleRate > 44000 && Year >= 1970 && Year <= 1976'
+```
+
 
 ## Notes
 Flags can be input separately:
