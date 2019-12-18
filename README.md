@@ -7,6 +7,8 @@ but you can also play in non-shuffle mode.
 
 ![in action](https://github.com/hyperjeff/shuffle/blob/master/screen1.png)
 
+![in action](https://github.com/hyperjeff/shuffle/blob/master/screen2.png)
+
 ## Unique features:
 - Use any collections of audio/music folders at it any time you run it (no pre-ordained music locations)
 - Shuffle by albums (optionally within genre)
