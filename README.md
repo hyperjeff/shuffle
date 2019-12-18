@@ -5,7 +5,7 @@ Very light-weight music player, lots of options.
 Default mode is to shuffle music randomly,
 but you can also play in non-shuffle mode.
 
-![in action](https://github.com/hyperjeff/shuffle/blob/master/screen1.png)
+![in action](https://github.com/hyperjeff/shuffle/blob/master/screen3.png)
 
 ![in action](https://github.com/hyperjeff/shuffle/blob/master/screen2.png)
 
