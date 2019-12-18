@@ -33,8 +33,8 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.6 -- Plays a shuffled list of music files
-               Copyright 2019 HyperJeff, Inc
+shuffle 1.6.1 -- Plays a shuffled list of music files
+                 Copyright 2019 HyperJeff, Inc
 
 Usage: shuffle [options] [--genre Genre] [--regex "..."] [--mdfind "..."] [--start hh:mm:ss] [--rate x] [directories/files]
 
@@ -54,6 +54,7 @@ options for music playback:
 options for info display:
 
        -f | filepath shown
+       -g | show genre
        -h | print this help and exit
        -i | invert colors
        -m | metadata not shown
@@ -77,6 +78,7 @@ Handy mdfind aliases: Year, Genre, Track, Rate, Length.
       =   | set rate back to default
       ∞   | loop current track (option-5)
       f   | toggle showing filepath
+      g   | toggle showing genre
       Q   | quit without clearing info
       q   | quit
           |
