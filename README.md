@@ -7,6 +7,8 @@ but you can also play in non-shuffle mode.
 
 ![in action](https://github.com/hyperjeff/shuffle/blob/master/screen3.png)
 
+Tab to toggle seeing the song list:
+
 ![in action](https://github.com/hyperjeff/shuffle/blob/master/screen2.png)
 
 ## Unique features:
