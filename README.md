@@ -37,10 +37,10 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.6.1 -- Plays a shuffled list of music files
-                 Copyright 2019 HyperJeff, Inc
+shuffle 1.7.2 -- Plays a shuffled list of music files
+                 © 2019-2020 HyperJeff, Inc
 
-Usage: shuffle [options] [--genre Genre] [--regex "..."] [--mdfind "..."] [--start hh:mm:ss] [--rate x] [directories/files]
+Usage: shuffle [options] [--genre Genre] [--regex "..."] [--mdfind "..."] [--start hh:mm:ss] [--rate x] directories/files
 
  --genre  | only include items within a specific genre(s) (implies -r)
  --mdfind | add any standard mdfind filter (no need to type "kMDItem" however)
@@ -52,23 +52,22 @@ options for music playback:
 
        -a | album shuffle (implies -r)
        -n | non-shuffle mode
-       -r | recursively search directories
        -y | year order, then artist
 
 options for info display:
 
-       -f | filepath shown
+       -f | show filepath
        -g | show genre
-       -h | print this help and exit
+       -h | print this help and exit (--help)
        -i | invert colors
        -m | metadata not shown
        -q | don't clear info on quit
        -s | short filepath display
        -t | track and year info not shown
+       -v | print version number and quit (--version)
        -0 | no printed output
        -1 | monochrome output
 
-If no directory is specified, current directory will be used.
 Albums and genre only available on Spotlight-indexed volumes.
 Several genres can be specified if in quotes and comma-separated.
 Handy mdfind aliases: Year, Genre, Track, Rate, Length.
@@ -79,10 +78,13 @@ Handy mdfind aliases: Year, Genre, Track, Rate, Length.
      ← →  | previous/next song
      ↑ ↓  | volume up/down
      < >  | adjust rate slower/faster
+     2-9  | change the look-ahead item count
       =   | set rate back to default
       ∞   | loop current track (option-5)
       f   | toggle showing filepath
       g   | toggle showing genre
+      x   | remove next song from queue
+      y   | remove song after next song from queue
       Q   | quit without clearing info
       q   | quit
           |
@@ -94,7 +96,7 @@ shift-tab | show current album queue (when available)
 ## Examples
 Shuffle play all music in one directory:
 ```
-shuffle -r ~/Music
+shuffle ~/Music
 ```
 
 Play tracks in order:
@@ -104,7 +106,7 @@ shuffle -n ~/Music/AudioBooks/Other-Minds/
 
 Shuffle play all music in many directories:
 ```
-shuffle -r ~/Music /Volumes/Exocat/Music /Volumes/SomeNetworkVolume/Music/
+shuffle ~/Music /Volumes/Exocat/Music /Volumes/SomeNetworkVolume/Music/
 ```
 
 Shuffle whole albums in a given genre:
@@ -114,21 +116,21 @@ shuffle -a --genre Ambient ~/Music
 
 Shuffle among multiple genres:
 ```
-shuffle --genre "Glam Rock, Experimental Pop, Speed Bluegrass"
+shuffle ~/Music --genre "Glam Rock, Experimental Pop, Speed Bluegrass"
 ```
 
 Play all songs in chronological order:
 ```
-shuffle -ry ~/Music/Compilations
+shuffle -y ~/Music/Compilations
 ```
 
 Shuffle all songs with the word Feelin', Feeling, Feelings:
 ```
-shuffle ~/Music/ -r --regex "Feelin.*"
+shuffle ~/Music/ --regex "Feelin.*"
 ```
 or use regex to pick out groups of terms into a playlist:
 ```
-shuffle ~/Music/ -r --regex "Sun|Moon|Star|Planet"
+shuffle ~/Music/ --regex "Sun|Moon|Star|Planet"
 ```
 
 Advanced `mdfind`-base searches can save you from some convoluted piping.
@@ -143,11 +145,11 @@ shuffle ~/Music --mdfind 'AudioSampleRate > 44000 && Year >= 1970 && Year <= 197
 ## Notes
 Flags can be input separately:
 ```
-shuffle -f -i -r -1
+shuffle -f -i -1
 ```
 or grouped together:
 ```
-shuffle -1irf
+shuffle -1if
 ```
 
 *Regex*es are applied (currently at least) only to filenames, and technically are formed by prepending `.*\b` and postpending `\b.*` in order to make it easier to just put in a word that one might want to make a playlist theme out of.
