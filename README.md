@@ -153,3 +153,8 @@ shuffle -1if
 ```
 
 *Regex*es are applied (currently at least) only to filenames, and technically are formed by prepending `.*\b` and postpending `\b.*` in order to make it easier to just put in a word that one might want to make a playlist theme out of.
+
+If you get a message that shuffle cannot find any music files when you declare a genre, but you can play music when you don't, then try the following in Terminal:
+```
+mdimport [directory with your music files]
+```
