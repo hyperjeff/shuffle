@@ -13,12 +13,19 @@ Tab to toggle seeing the song list:
 
 ## Unique features:
 - Use any collections of audio/music folders at it any time you run it (no pre-ordained music locations)
-- Shuffle by albums (optionally within genre)
+- Shuffle by albums (optionally within a genre)
+- Play music within multiple genres at once
 - Instantly starts even for huge collections of music (in shuffle mode)
 - Indefinite rewind in shuffle mode
 - Jump forward/back by album (when in non-shuffle mode)
 - Regex filters applied to filenames (optional)
 - Uses roughly 1/10th the RAM of iTunes, and hardly any CPU resources
+
+## Additional features:
+- Supports 16 file types, including FLAC music
+- Can easily create playlists by just making a folder full of aliases or symlinks
+- Can start audio books at a specified play rate and/or time offset
+- Can play music in year order regardless of album or folder
 
 ## Install
 To install:
@@ -37,7 +44,7 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.7.2 -- Plays a shuffled list of music files
+shuffle 1.8.0 -- Plays a shuffled list of music files
                  © 2019-2020 HyperJeff, Inc
 
 Usage: shuffle [options] [--genre Genre] [--regex "..."] [--mdfind "..."] [--start hh:mm:ss] [--rate x] directories/files
