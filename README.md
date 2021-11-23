@@ -44,13 +44,14 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.8.0 -- Plays a shuffled list of music files
-                 © 2019-2020 HyperJeff, Inc
+shuffle 1.8.4 -- Plays a shuffled list of music files
+                 © 2019-2022 HyperJeff, Inc
 
-Usage: shuffle [options] [--genre Genre] [--regex "..."] [--mdfind "..."] [--start hh:mm:ss] [--rate x] directories/files
+Usage: shuffle [options] [--genre Genre] [--regex "..."]
+       [--mdfind "..."] [--start hh:mm:ss] [--rate x] directories/files
 
  --genre  | only include items within a specific genre(s) (implies -r)
- --mdfind | add any standard mdfind filter (no need to type "kMDItem" however)
+ --mdfind | add any standard mdfind filter (no need to type "kMDItem")
  --rate   | set the initial playback speed multiplier
  --regex  | filter filenames using a regular expression
  --start  | begin at specified offset time (first track only)
@@ -63,6 +64,7 @@ options for music playback:
 
 options for info display:
 
+       -e | print examples and exit (--ex, --examples)
        -f | show filepath
        -g | show genre
        -h | print this help and exit (--help)
@@ -76,7 +78,14 @@ options for info display:
        -1 | monochrome output
 
 Albums and genre only available on Spotlight-indexed volumes.
+To index your music so genres work: mdimport [directory]
+
 Several genres can be specified if in quotes and comma-separated.
+
+Playlists can be created by making a folder full of Finder aliases
+or unix symlinks. For best performance, don't keep playlists within
+your main music library folder.
+
 Handy mdfind aliases: Year, Genre, Track, Rate, Length.
 
     space | pause/continue song
@@ -158,6 +167,8 @@ or grouped together:
 ```
 shuffle -1if
 ```
+
+shuffle attempts to determine if it should invert colors automatically if you are using Terminal or iTerm2, so you may see, only once, an alert about it trying to make a call to AppleScript.
 
 *Regex*es are applied (currently at least) only to filenames, and technically are formed by prepending `.*\b` and postpending `\b.*` in order to make it easier to just put in a word that one might want to make a playlist theme out of.
 
