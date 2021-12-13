@@ -182,3 +182,10 @@ If you get a message that shuffle cannot find any music files when you declare a
 ```
 mdimport [directory with your music files]
 ```
+
+
+## Known Issues
+- Cannot read year info from FLAC files
+- Remote/networked drives often don't have Spotlight indexing, causing albums shuffles and year information to fail
+- `genre` and `mdfind` options don't work with aliases / playlists
+- Smart Folders can't use date constraints
