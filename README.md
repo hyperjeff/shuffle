@@ -23,7 +23,7 @@ Tab to toggle seeing the song list:
 
 ## Additional features:
 - Supports 16 file types, including FLAC music
-- Can easily create playlists by just making a folder full of aliases or symlinks
+- Can easily create playlists by just making a folder full of aliases, symlinks or Finder SavedSearches
 - Can start audio books at a specified play rate and/or time offset
 - Can play music in year order regardless of album or folder
 
@@ -44,7 +44,7 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.8.4 -- Plays a shuffled list of music files
+shuffle 1.9.0 -- Plays a shuffled list of music files
                  © 2019-2022 HyperJeff, Inc
 
 Usage: shuffle [options] [--genre Genre] [--regex "..."]
@@ -68,9 +68,9 @@ options for info display:
        -f | show filepath
        -g | show genre
        -h | print this help and exit (--help)
-       -i | invert colors
+       -i | force inverted colors
        -m | metadata not shown
-       -q | don't clear info on quit
+       -q | don't clear song info on quit
        -s | short filepath display
        -t | track and year info not shown
        -v | print version number and quit (--version)
@@ -79,12 +79,13 @@ options for info display:
 
 Albums and genre only available on Spotlight-indexed volumes.
 To index your music so genres work: mdimport [directory]
+shuffle can't currently read year info from FLAC files.
 
 Several genres can be specified if in quotes and comma-separated.
 
 Playlists can be created by making a folder full of Finder aliases
-or unix symlinks. For best performance, don't keep playlists within
-your main music library folder.
+or unix symlinks, or by defining and saving Finder Smart Folders.
+Speed tip: don't keep playlists within main music library folder.
 
 Handy mdfind aliases: Year, Genre, Track, Rate, Length.
 
@@ -138,6 +139,11 @@ shuffle ~/Music --genre "Glam Rock, Experimental Pop, Speed Bluegrass"
 Play all songs in chronological order:
 ```
 shuffle -y ~/Music/Compilations
+```
+
+Play all complete albums by Devo in order they came out:
+```
+shuffle ~/Music/Devo -ay
 ```
 
 Shuffle all songs with the word Feelin', Feeling, Feelings:
