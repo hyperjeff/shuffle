@@ -183,6 +183,13 @@ If you get a message that shuffle cannot find any music files when you declare a
 mdimport [directory with your music files]
 ```
 
+## Tips
+What are all the genres in your music library? Try this:
+```
+find . -type f -print0 | xargs -0 mdls -name kMDItemMusicalGenre * | awk '{ split($0, a, "\""); print a[2] }' | sort | uniq -i | tr '\n' ,
+```
+(You may find, like me, that there is a lot of garbage genres that you may want to fix up with some metadata file editor. There are many, and you can always use iTunes/Music for this.)
+
 
 ## Known Issues
 - Cannot read year info from FLAC files
