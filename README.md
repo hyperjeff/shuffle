@@ -186,11 +186,11 @@ mdimport [directory with your music files]
 ## Tips
 What are all the genres in your music library? Try this:
 ```
-find /Your/Music/ -type f -print0 | xargs -0 mdls -name kMDItemMusicalGenre * | awk '{ split($0, a, "\""); print a[2] }' | sort | uniq -i | tr '\n' ,
+find /Your/Music/ -type f -print0 | xargs -0 mdls -name kMDItemMusicalGenre | awk '{ split($0, a, "\""); print a[2] }' | sort | uniq -i | tr '\n' ,
 ```
 And this variation will show you the relative frequency each has in your collection:
 ```
-find /Your/Music/ -type f -print0 | xargs -0 mdls -name kMDItemMusicalGenre * | awk '{ split($0, a, "\""); print a[2] }' | sort | uniq -i -c | sort -r
+find /Your/Music/ -type f -print0 | xargs -0 mdls -name kMDItemMusicalGenre | awk '{ split($0, a, "\""); print a[2] }' | sort | uniq -i -c | sort -r
 ```
 (You may find, like me, that there is a lot of garbage genres that you may want to fix up with some metadata file editor. There are many, and you can always use iTunes/Music for this.)
 
