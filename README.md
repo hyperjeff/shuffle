@@ -44,7 +44,7 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.9.0 -- Plays a shuffled list of music files
+shuffle 1.9.1 -- Plays a shuffled list of music files
                  © 2019-2022 HyperJeff, Inc
 
 Usage: shuffle [options] [--genre Genre] [--regex "..."]
@@ -69,6 +69,7 @@ options for info display:
        -g | show genre
        -h | print this help and exit (--help)
        -i | force inverted colors
+       -l | list all genres in directories and exit (--list-genres)
        -m | metadata not shown
        -q | don't clear song info on quit
        -s | short filepath display
@@ -76,18 +77,9 @@ options for info display:
        -v | print version number and quit (--version)
        -0 | no printed output
        -1 | monochrome output
+       -2 | 24-bit color output
 
-Albums and genre only available on Spotlight-indexed volumes.
-To index your music so genres work: mdimport [directory]
-shuffle can't currently read year info from FLAC files.
-
-Several genres can be specified if in quotes and comma-separated.
-
-Playlists can be created by making a folder full of Finder aliases
-or unix symlinks, or by defining and saving Finder Smart Folders.
-Speed tip: don't keep playlists within main music library folder.
-
-Handy mdfind aliases: Year, Genre, Track, Rate, Length.
+Live controls during playback:
 
     space | pause/continue song
      [ ]  | skip back/ahead 15 seconds
@@ -108,6 +100,18 @@ Handy mdfind aliases: Year, Genre, Track, Rate, Length.
      tab  | show current music queue
 shift-tab | show current album queue (when available)
     ctl-r | reveal current tune in enclosing folder
+
+Albums and genre only available on Spotlight-indexed volumes.
+To index your music so genres work: mdimport [directory]
+shuffle can't currently read year info from FLAC files.
+
+Several genres can be specified if in quotes and comma-separated.
+
+Playlists can be created by making a folder full of Finder aliases
+or unix symlinks, or by defining and saving Finder Smart Folders.
+Speed tip: don't keep playlists within main music library folder.
+
+Handy mdfind aliases: Year, Genre, Track, Rate, Length.
 ```
 
 ## Examples
