@@ -19,10 +19,11 @@ Tab to toggle seeing the song list:
 - Indefinite rewind in shuffle mode
 - Jump forward/back by album (when in non-shuffle mode)
 - Regex filters applied to filenames (optional)
-- Uses roughly 1/10th the RAM of iTunes, and hardly any CPU resources
+- Uses roughly 1/10th the memory of iTunes, and hardly any CPU resources
+- Sophisticated filtering options
 
 ## Additional features:
-- Supports 16 file types, including FLAC music
+- Supports 16 file types (MP3, AAC, FLAC, etc)
 - Can easily create playlists by just making a folder full of aliases, symlinks or Finder SavedSearches
 - Can start audio books at a specified play rate and/or time offset
 - Can play music in year order regardless of album or folder
@@ -44,14 +45,14 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.9.1 -- Plays a shuffled list of music files
-                 © 2019-2022 HyperJeff, Inc
+shuffle 1.10.0 -- Plays a shuffled list of music files
+                  © 2019-2025 HyperJeff, Inc
 
 Usage: shuffle [options] [--genre Genre] [--regex "..."]
-       [--mdfind "..."] [--start hh:mm:ss] [--rate x] directories/files
+       [--filter "..."] [--start hh:mm:ss] [--rate x] directories/files
 
  --genre  | only include items within a specific genre(s) (implies -r)
- --mdfind | add any standard mdfind filter (no need to type "kMDItem")
+ --filter | add any standard filter filter (no need to type "kMDItem")
  --rate   | set the initial playback speed multiplier
  --regex  | filter filenames using a regular expression
  --start  | begin at specified offset time (first track only)
@@ -92,6 +93,7 @@ Live controls during playback:
       ∞   | loop current track (option-5)
       f   | toggle showing filepath
       g   | toggle showing genre
+      h   | help
       x   | remove next song from queue
       y   | remove song after next song from queue
       Q   | quit without clearing info
@@ -111,7 +113,7 @@ Playlists can be created by making a folder full of Finder aliases
 or unix symlinks, or by defining and saving Finder Smart Folders.
 Speed tip: don't keep playlists within main music library folder.
 
-Handy mdfind aliases: Year, Genre, Track, Rate, Length.
+Handy mdfind aliases: Year, Genre, Track, Rate, Length, Added.
 ```
 
 ## Examples
@@ -159,14 +161,21 @@ or use regex to pick out groups of terms into a playlist:
 shuffle ~/Music/ --regex "Sun|Moon|Star|Planet"
 ```
 
-Advanced `mdfind`-base searches can save you from some convoluted piping.
-Use any clause you might want to send to mdfind to filter for songs.
-And best of all, no need to type "MDItem"!
+Advanced searches can save you from some convoluted piping.
+(Use any clause you might want to send to mdfind to filter for songs, if you're familiar with that. But no need to type the "kMDItem" part.)
 High quality music from 1970 to 1976:
 ```
-shuffle ~/Music --mdfind 'AudioSampleRate > 44000 && Year >= 1970 && Year <= 1976'
+shuffle ~/Music --filter 'AudioSampleRate > 44000 && Year >= 1970 && Year <= 1976'
 ```
 
+Play songs based on when the files were added to your collection:
+(keywords: today, yesterday, last, year, month, week, between, before, after, since)
+```
+shuffle ~/Music/ --filter "Added yesterday"
+shuffle ~/Music/ --filter "Added in the last month"
+shuffle ~/Music/ --filter "Added since last year"
+shuffle ~/Music/ --filter "Added between 2024 and 2025-04-01"
+```
 
 ## Notes
 Flags can be input separately:
@@ -202,5 +211,5 @@ find /Your/Music/ -type f -print0 | xargs -0 mdls -name kMDItemMusicalGenre | aw
 ## Known Issues
 - Cannot read year info from FLAC files
 - Remote/networked drives often don't have Spotlight indexing, causing albums shuffles and year information to fail
-- `genre` and `mdfind` options don't work with aliases / playlists
+- `genre` and `filter` options don't work with aliases / playlists
 - Smart Folders can't use date constraints
