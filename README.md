@@ -5,6 +5,8 @@ Very light-weight music player, lots of options.
 Default mode is to shuffle music randomly,
 but you can also play in non-shuffle mode.
 
+*Note:* macOS 13.5 (Ventura) or higher required.
+
 ![in action](https://github.com/hyperjeff/shuffle/blob/master/screen3.png)
 
 Tab to toggle seeing the song list:
