@@ -42,7 +42,7 @@ brew upgrade shuffle
 ```
 
 ## About
-`shuffle` was written purely in Swift using AVFoundation, and hence is Mac-only.
+`shuffle` is a Mac-only commandline music, audio, podcast player.
 
 `shuffle -h` for help, which is this currently:
 
