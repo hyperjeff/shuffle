@@ -7,11 +7,11 @@ but you can also play in non-shuffle mode.
 
 *Note:* macOS 13.5 (Ventura) or higher required.
 
-![in action](https://github.com/hyperjeff/shuffle/blob/master/screen3.png)
+![in action](https://github.com/hyperjeff/shuffle/blob/master/images/screen3.png)
 
 Tab to toggle seeing the song list:
 
-![in action](https://github.com/hyperjeff/shuffle/blob/master/screen2.png)
+![in action](https://github.com/hyperjeff/shuffle/blob/master/images/screen2.png)
 
 ## Unique features:
 - Use any collections of audio/music folders at it any time you run it (no pre-ordained music locations)
