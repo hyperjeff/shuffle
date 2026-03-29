@@ -25,6 +25,8 @@ Tab to toggle seeing the song list:
 - Sophisticated filtering options
 
 ## Additional features:
+- Integrates with macOS control center and media keys
+- Works with headphone play/pause/next/previous controls
 - Supports 16 file types (MP3, AAC, FLAC, etc)
 - Can easily create playlists by just making a folder full of aliases, symlinks or Finder SavedSearches
 - Can start audio books at a specified play rate and/or time offset
@@ -47,22 +49,22 @@ brew upgrade shuffle
 `shuffle -h` for help, which is this currently:
 
 ```
-shuffle 1.10.0 -- Plays a shuffled list of music files
-                  © 2019-2025 HyperJeff, Inc
+shuffle 1.11.0 -- Local music, audio, podcast player
+                 © 2019-2026 HyperJeff, Inc
 
-Usage: shuffle [options] [--genre Genre] [--regex "..."]
+Usage: shuffle [options] [--genre Genre] [--search "..."]
        [--filter "..."] [--start hh:mm:ss] [--rate x] directories/files
 
  --genre  | only include items within a specific genre(s) (implies -r)
- --filter | add any standard filter filter (no need to type "kMDItem")
+ --filter | add any standard mdfind filter (but no need for "kMDItem")
  --rate   | set the initial playback speed multiplier
- --regex  | filter filenames using a regular expression
+ --search | filter filenames using text or a regular expression
  --start  | begin at specified offset time (first track only)
 
 options for music playback:
 
        -a | album shuffle (implies -r)
-       -n | non-shuffle mode
+       -n | non-shuffle mode (default is to shuffle)
        -y | year order, then artist
 
 options for info display:
@@ -85,17 +87,17 @@ options for info display:
 Live controls during playback:
 
     space | pause/continue song
-     [ ]  | skip back/ahead 15 seconds
-     { }  | skip to previous/next album
-     ← →  | previous/next song
      ↑ ↓  | volume up/down
+     ← →  | previous/next song
+     { }  | skip to previous/next album
+     [ ]  | skip back/ahead 15 seconds
      < >  | adjust rate slower/faster
      2-9  | change the look-ahead item count
       =   | set rate back to default
       ∞   | loop current track (option-5)
       f   | toggle showing filepath
       g   | toggle showing genre
-      h   | help
+      h   | show help
       x   | remove next song from queue
       y   | remove song after next song from queue
       Q   | quit without clearing info
@@ -104,6 +106,8 @@ Live controls during playback:
      tab  | show current music queue
 shift-tab | show current album queue (when available)
     ctl-r | reveal current tune in enclosing folder
+
+This app responds to macOS media keys, audio controls, and control center.
 
 Albums and genre only available on Spotlight-indexed volumes.
 To index your music so genres work: mdimport [directory]
